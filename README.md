@@ -42,8 +42,8 @@ The system implements a modular, security-first architecture with:
 
 ## Project Structure
 CGI/                    Main application modules
-├── checkToken.cpp           Hardware token verification
-├── emailLogin.cpp           Initial authentication handler
+├── checkToken.cpp           Hardware token verification \n
+├── emailLogin.cpp           Initial authentication handler \n
 ├── lecturer.cpp             Lecturer dashboard and authentication
 ├── lecturerModule.cpp       Module assignment interface
 ├── logOut.cpp               Session termination
