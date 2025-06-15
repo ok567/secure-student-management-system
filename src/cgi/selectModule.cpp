@@ -1,17 +1,9 @@
-/****************************************************************************************************
-This web page is next inline from lecture.cgi. It as usual it tests for a match of cookies/emailpin table and no time out. If there is a match the time out is updated and the page prompts for:
-User name
-Password
-Email address
-There is a save option and a return to lecturer.cgi.
+/**************************************************************************************
+This stems from the webpage lecturer.cgi and is activated when the administrator selects add student to module. As usual it tests for a match of cookies/emailpin table and no time out. If there is a match the time out is updated.
+This now displays a drop down box with all the modules available on the system. From here the administrator can select the relevant module to add a student to.
 
- Pre:
-
- Post:
-
-*****************************************************************************************************
+***************************************************************************************
 */
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -27,7 +19,6 @@ There is a save option and a return to lecturer.cgi.
 
 using namespace std;
 using namespace cgicc;
-
 bool error=false;
  void logout(){ 
                if (!error){              
@@ -42,11 +33,11 @@ bool error=false;
 		    <<" Login Failure Retry </a>";
 		    error =true;
 		 }   
- } 
+ }
+
+
 int main()
 {
-	
-	try{
 char sql[512];
 char cgiOut[512];
 string emailPinCookie;
@@ -57,8 +48,9 @@ string userIDSaved;
 string phaseSaved;
 time_t timeSaved;
 time_t currentTime;
-char cmd[100];
-	
+const char* modules[5]= { "maths", "physics", "chem", "english","history" };
+char cmd[100];	
+	try{
 		Cgicc cgi;
                 const_cookie_iterator cci;
 
@@ -119,55 +111,53 @@ char cmd[100];
                       currentTime =time(NULL);
                      int timeOut= currentTime - timeSaved;
                    //  cout << " timeout = "<< timeOut;
-              if ((emailPinCookie != emailPinSaved )|| (emailPinSaved != emailPinCookie)||(timeOut > 30)){
-                    logout();
-                   // cout<< "timeout = "<< timeOut;
-                    //  cout<< "<a href=\"./logOut.cgi\" rel=\"external\" title=\"Login Failure\">"
-		  //	<<" Login Failure Retry </a>";
+              if ((emailPinCookie != emailPinSaved )|| (emailPinSaved != emailPinCookie)||(timeOut > 60)){
+                   logout();
               }else{                             		
                 sprintf(cmd,"update emailPin set time=%ld where id=1",currentTime);
                 mysql_query (connect,cmd); // sql query all users
                 mysql_close (connect); // close sql connection  
 
       		// Set up the HTML document
-      		cout << html() << head(title("Add Lecturer")) << endl;
+      		cout << html() << head(title("Select Module")) << endl;
       		cout << "<head>\n";
-       	cout << "<title> User Options </title>\n";
+       	cout << "<title> Select Module </title>\n";
                 cout << "</head>\n";
                 cout << "<body>\n";
                 cout << cgicc::div().set("align","center") << endl;
-                cout << "<h1 align=\"center\">Add Lecturer</h1>\n";
+                cout << "<h1 align=\"center\">Select Module</h1>\n";
                
  
-                cout<< "<form method=\"post\" action=\"saveLecturer.cgi\">"<< endl;
-                cout << "<p style=\"black:white; margin-left:-120px; margin-top:80px\">User Name</p>" <<endl; 
-	        cout << "<input type=text size=20 name=\"name\" style=\"margin-left:179px; margin-top:-44px\">";
-                cout << "<p style=\"black:white; margin-left:-120px; margin-top:0px\">Password</p>" <<endl; 
-	        cout << "<input type=password size=20 name=\"password\" style=\"margin-left:179px; margin-top:-44px\">";
-                cout << "<p style=\"black:white; margin-left:-150px; margin-top:0px\">Email Address</p>" <<endl; 
-	        cout << "<input type=text size=20 name=\"emailAddress\" style=\"margin-left:180px; margin-top:-40px\">";
+             
+		cout<< "<form method=\"post\" action=\"addStudent.cgi\">"<< endl;
+		cout<< "<p style=\"margin-left:-180px; margin-top:0px\">Lecturer:</p>"<< endl;
+		cout<< "<select name=\"module\" style=\"margin-left:80px; margin-top:-42px\">"<< endl;
                 
-                cout << "<input type=submit value=\"Save Lecturer\" style=\"position:absolute;margin-left:-200px; margin-top:00px\">";
-                cout << endl;
-                  
+                unsigned int i=0;
+       		 for (i=0; i<5; i++){
+       		     const char * modulesp = modules[i];
+                             sprintf(cmd,"<option value=%s selected > %s </option>",modulesp,modulesp);
+                            cout<< cmd; 
+                          }        
+        //         }
+                 cout<< "</select> <br>" << endl;
+                cout << "<input type=submit value=\"Select Module\" style=\"position:absolute;margin-left:-130px; margin-top:00px\">";
                 cout << "</form>" << endl;
-                cout<< "<form method=\"post\" action=\"lecturer.cgi\">"<< endl;
-                cout << "<input type=submit value=\"Lecturer Options \" style=\"position:absolute;margin-left:-9px; margin-top:10px\">";
-                cout << endl;  
-			         
-               cout << "</form>" << endl;
-		cout<< "<form method=\"post\" action=\"logOut.cgi\">"<< endl;
-//	        cout << "<input type=submit value=\"Log Out\" style=\"margin-left:-00px; margin-top:00px\">";
-	        cout << "<input type=submit value=\"Log Out\" style=\"position:absolute;margin-left:-9px; margin-top:35px\">";
-	        cout << endl;  
-                cout << "</form>" << endl;
-                 
-              
-
-               }
+         cout<< "<form method=\"post\" action=\"lecturer.cgi\">"<< endl;
+	  cout << "<input type=submit value=\"Back To Lecturer Options\" style=\"position:absolute;margin-left:-135px; margin-top:30px\">";
+          cout << endl;  
+          cout << "</form>" << endl;
+          
+          cout<< "<form method=\"post\" action=\"logOut.cgi\">"<< endl;
+	  cout << "<input type=submit value=\"Log Out\" style=\"position:absolute;margin-left:-135px; margin-top:80px\">";
+          cout << endl;  
+          cout << "</form>" << endl;
+         }
+               
            
-	}
+ }
 	catch(exception& e) {
+      	cout << HTTPContentHeader("text/html; charset=utf-8");
       	logout();
    	}
 }
