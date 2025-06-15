@@ -40,11 +40,11 @@ The system implements a modular, security-first architecture with:
 - Email addresses: Format validation with @ symbol requirement
 - Marks: Integer validation between 0-100 range
 
-## Project Structure
-CGI/                   # Main application modules
-├── checkToken.cpp          # Hardware token verification
-├── emailLogin.cpp          # Initial authentication handler
-├── lecturer.cpp            # Lecturer dashboard and authentication
+## Project Structure 
+CGI/                   # Main application modules <br />
+├── checkToken.cpp          # Hardware token verification <br />
+├── emailLogin.cpp          # Initial authentication handler <br />
+├── lecturer.cpp            # Lecturer dashboard and authentication <br />
 ├── lecturerModule.cpp      # Module assignment interface
 ├── logOut.cpp              # Session termination
 ├── module.cpp              # Individual module management
