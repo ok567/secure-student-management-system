@@ -45,16 +45,16 @@ CGI/                   # Main application modules <br />
 ├── checkToken.cpp          # Hardware token verification <br />
 ├── emailLogin.cpp          # Initial authentication handler <br />
 ├── lecturer.cpp            # Lecturer dashboard and authentication <br />
-├── lecturerModule.cpp      # Module assignment interface
-├── logOut.cpp              # Session termination
-├── module.cpp              # Individual module management
-├── saveLecturer.cpp        # User account creation
-├── saveLecturerModules.cpp # Module assignment processing
-├── saveModule.cpp          # Grade management and updates
-├── saveStudentToModule.cpp # Student enrollment
-├── selectLecturer.cpp      # Lecturer selection interface
-├── selectModule.cpp        # Module selection interface
-└── tokenLogin.cpp          # Administrator token authentication
+├── lecturerModule.cpp      # Module assignment interface <br />
+├── logOut.cpp              # Session termination <br />
+├── module.cpp              # Individual module management<br />
+├── saveLecturer.cpp        # User account creation<br />
+├── saveLecturerModules.cpp # Module assignment processing<br />
+├── saveModule.cpp          # Grade management and updates<br />
+├── saveStudentToModule.cpp # Student enrollment<br />
+├── selectLecturer.cpp      # Lecturer selection interface<br />
+├── selectModule.cpp        # Module selection interface<br />
+└── tokenLogin.cpp          # Administrator token authentication<br />
 
 crypto/                # Cryptographic utilities
 ├── base64.cpp              # Base64 encoding/decoding
