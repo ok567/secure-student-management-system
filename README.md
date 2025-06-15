@@ -41,33 +41,33 @@ The system implements a modular, security-first architecture with:
 - Marks: Integer validation between 0-100 range
 
 ## Project Structure
-CGI/                   # Main application modules
-├── checkToken.cpp          # Hardware token verification
-├── emailLogin.cpp          # Initial authentication handler
-├── lecturer.cpp            # Lecturer dashboard and authentication
-├── lecturerModule.cpp      # Module assignment interface
-├── logOut.cpp              # Session termination
-├── module.cpp              # Individual module management
-├── saveLecturer.cpp        # User account creation
-├── saveLecturerModules.cpp # Module assignment processing
-├── saveModule.cpp          # Grade management and updates
-├── saveStudentToModule.cpp # Student enrollment
-├── selectLecturer.cpp      # Lecturer selection interface
-├── selectModule.cpp        # Module selection interface
-└── tokenLogin.cpp          # Administrator token authentication
-crypto/                # Cryptographic utilities
-├── base64.cpp              # Base64 encoding/decoding
-├── base64.h                # Base64 header file
-├── decrypt                 # Decryption executable
-├── encrypt                 # Encryption executable
-├── encrypt.cpp             # AES-256-GCM encryption implementation
-└── evp-encrypt             # OpenSSL encryption utility
-utils/                 # Database utilities
-├── resetEmailPin.cpp       # Session table management
-├── resetModules.cpp        # Module data initialization
-├── resetUser.cpp           # User account setup
-├── resetModules            # Module reset executable
-└── resetUser               # User reset executable
+CGI/                    Main application modules
+├── checkToken.cpp           Hardware token verification
+├── emailLogin.cpp           Initial authentication handler
+├── lecturer.cpp             Lecturer dashboard and authentication
+├── lecturerModule.cpp       Module assignment interface
+├── logOut.cpp               Session termination
+├── module.cpp               Individual module management
+├── saveLecturer.cpp         User account creation
+├── saveLecturerModules.cpp  Module assignment processing
+├── saveModule.cpp           Grade management and updates
+├── saveStudentToModule.cpp  Student enrollment
+├── selectLecturer.cpp       Lecturer selection interface
+├── selectModule.cpp         Module selection interface
+└── tokenLogin.cpp           Administrator token authentication
+crypto/                 Cryptographic utilities
+├── base64.cpp               Base64 encoding/decoding
+├── base64.h                 Base64 header file
+├── decrypt                  Decryption executable
+├── encrypt                  Encryption executable
+├── encrypt.cpp              AES-256-GCM encryption implementation
+└── evp-encrypt              OpenSSL encryption utility
+utils/                  Database utilities
+├── resetEmailPin.cpp        Session table management
+├── resetModules.cpp         Module data initialization
+├── resetUser.cpp            User account setup
+├── resetModules             Module reset executable
+└── resetUser                User reset executable
 
 ## Database Schema
 
