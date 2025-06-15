@@ -41,7 +41,7 @@ The system implements a modular, security-first architecture with:
 - Marks: Integer validation between 0-100 range
 
 ## Project Structure 
-CGI/                   # Main application modules <br />
+CGI/                         # Main application modules <br />
 ├── checkToken.cpp          # Hardware token verification <br />
 ├── emailLogin.cpp          # Initial authentication handler <br />
 ├── lecturer.cpp            # Lecturer dashboard and authentication <br />
@@ -56,7 +56,7 @@ CGI/                   # Main application modules <br />
 ├── selectModule.cpp        # Module selection interface<br />
 └── tokenLogin.cpp          # Administrator token authentication<br />
 
-crypto/                # Cryptographic utilities<br />
+crypto/                      # Cryptographic utilities<br />
 ├── base64.cpp              # Base64 encoding/decoding<br />
 ├── base64.h                # Base64 header file<br />
 ├── decrypt                 # Decryption executable<br />
@@ -64,7 +64,7 @@ crypto/                # Cryptographic utilities<br />
 ├── encrypt.cpp             # AES-256-GCM encryption implementation<br />
 └── evp-encrypt             # OpenSSL encryption utility<br />
 
-utils/                 # Database utilities<br />
+utils/                       # Database utilities<br />
 ├── resetEmailPin.cpp       # Session table management<br />
 ├── resetModules.cpp        # Module data initialization<br />
 ├── resetUser.cpp           # User account setup<br />
