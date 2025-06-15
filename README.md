@@ -56,20 +56,20 @@ CGI/                   # Main application modules <br />
 ├── selectModule.cpp        # Module selection interface<br />
 └── tokenLogin.cpp          # Administrator token authentication<br />
 
-crypto/                # Cryptographic utilities
-├── base64.cpp              # Base64 encoding/decoding
-├── base64.h                # Base64 header file
-├── decrypt                 # Decryption executable
-├── encrypt                 # Encryption executable
-├── encrypt.cpp             # AES-256-GCM encryption implementation
-└── evp-encrypt             # OpenSSL encryption utility
+crypto/                # Cryptographic utilities<br />
+├── base64.cpp              # Base64 encoding/decoding<br />
+├── base64.h                # Base64 header file<br />
+├── decrypt                 # Decryption executable<br />
+├── encrypt                 # Encryption executable<br />
+├── encrypt.cpp             # AES-256-GCM encryption implementatio<br />n
+└── evp-encrypt             # OpenSSL encryption utility<br />
 
-utils/                 # Database utilities
-├── resetEmailPin.cpp       # Session table management
-├── resetModules.cpp        # Module data initialization
-├── resetUser.cpp           # User account setup
-├── resetModules            # Module reset executable
-└── resetUser               # User reset executable
+utils/                 # Database utilities<br />
+├── resetEmailPin.cpp       # Session table management<br />
+├── resetModules.cpp        # Module data initialization<br />
+├── resetUser.cpp           # User account setup<br />
+├── resetModules            # Module reset executable<br />
+└── resetUser               # User reset executable<br />
 
 ## Database Schema
 
