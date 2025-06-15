@@ -61,7 +61,7 @@ crypto/                # Cryptographic utilities<br />
 ├── base64.h                # Base64 header file<br />
 ├── decrypt                 # Decryption executable<br />
 ├── encrypt                 # Encryption executable<br />
-├── encrypt.cpp             # AES-256-GCM encryption implementatio<br />n
+├── encrypt.cpp             # AES-256-GCM encryption implementation<br />
 └── evp-encrypt             # OpenSSL encryption utility<br />
 
 utils/                 # Database utilities<br />
