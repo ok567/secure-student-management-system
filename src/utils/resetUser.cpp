@@ -75,6 +75,11 @@ int main()
 {
 	
 	try{
+		
+		
+		Cgicc cgi;
+                const_cookie_iterator cci;
+     		//cout << HTTPContentHeader("text/html; charset=utf-8");
                MYSQL *connect;                               // setup mysql
               connect = mysql_init(NULL);                // initiate sql connection
 
@@ -99,15 +104,19 @@ int main()
                 }
                 MYSQL_RES *res_set;              // get  result set which contains data
                 MYSQL_ROW row;                   // row of data
-                 mysql_query (connect,"drop table emailPin");
-                 mysql_query (connect,"CREATE TABLE emailPin ( id int,pin varchar(20),userID varchar(2),phase varchar(2),time bigint)");
-                  mysql_query (connect,"insert into emailPin value (1,'xxx','0','0',0)");
+                 mysql_query (connect,"drop table users");
+                 mysql_query (connect,"CREATE TABLE users( id int,name varchar(20),password varchar(20),module1 boolean,module2 boolean,module3 boolean, module4 boolean,module5 boolean,email varchar(40))");
+                  mysql_query (connect,"insert into users  value (1,'admin','`clhm',0,0,0,0,0,'admin@localhost')");
+                  mysql_query (connect,"insert into users  value (2,'andy','cnkoghm',1,1,0,0,0,'andy@localhost')");
+                  mysql_query (connect,"insert into users  value (3,'bob','bgdqqx',1,0,1,0,0,'bob@localhost')");
+
             mysql_close (connect); // close sql connection
-            cout << "Emailpin Database Reset "<< endl;
+            cout << "Users Database Reset "<< endl;
 	}
 	catch(exception& e) {
       	// handle any errors - omitted for brevity
    	}
 }
                              		
+
 

@@ -75,6 +75,11 @@ int main()
 {
 	
 	try{
+		
+		
+		Cgicc cgi;
+                const_cookie_iterator cci;
+   //  		cout << HTTPContentHeader("text/html; charset=utf-8");
                MYSQL *connect;                               // setup mysql
               connect = mysql_init(NULL);                // initiate sql connection
 
@@ -99,11 +104,34 @@ int main()
                 }
                 MYSQL_RES *res_set;              // get  result set which contains data
                 MYSQL_ROW row;                   // row of data
-                 mysql_query (connect,"drop table emailPin");
-                 mysql_query (connect,"CREATE TABLE emailPin ( id int,pin varchar(20),userID varchar(2),phase varchar(2),time bigint)");
-                  mysql_query (connect,"insert into emailPin value (1,'xxx','0','0',0)");
+                 mysql_query (connect,"drop table maths");
+                 mysql_query (connect,"CREATE TABLE maths( name varchar(20),mark varchar(20))");
+                  mysql_query (connect,"insert into maths  value ('smith','10')");
+                 mysql_query (connect,"insert into maths  value ('jones','20')");
+                 mysql_query (connect,"insert into maths  value ('wiliams','30')");
+                 mysql_query (connect,"drop table physics");
+                 mysql_query (connect,"CREATE TABLE physics( name varchar(20),mark varchar(20))");
+                  mysql_query (connect,"insert into physics  value ('smith','40')");
+                 mysql_query (connect,"insert into physics  value ('jones','50')");
+                 mysql_query (connect,"insert into physics  value ('wiliams','60')");
+                 mysql_query (connect,"drop table chem");
+                 mysql_query (connect,"CREATE TABLE chem( name varchar(20),mark varchar(20))");
+                  mysql_query (connect,"insert into chem  value ('smith','70')");
+                 mysql_query (connect,"insert into chem  value ('jones','80')");
+                 mysql_query (connect,"insert into chem  value ('wiliams','90')");
+                 mysql_query (connect,"drop table english");
+                mysql_query (connect,"CREATE TABLE english( name varchar(20),mark varchar(20))");
+                  mysql_query (connect,"insert into english value ('smith','15')");
+                 mysql_query (connect,"insert into english  value ('jones','25')");
+                 mysql_query (connect,"insert into english  value ('wiliams','35')");
+                 mysql_query (connect,"drop table history");
+                mysql_query (connect,"CREATE TABLE history( name varchar(20),mark varchar(20))");
+                  mysql_query (connect,"insert into history  value ('smith','45')");
+                 mysql_query (connect,"insert into history  value ('jones','55')");
+                 mysql_query (connect,"insert into history  value ('wiliams','65')");
+
             mysql_close (connect); // close sql connection
-            cout << "Emailpin Database Reset "<< endl;
+            cout << "Modules Database Reset "<< endl;
 	}
 	catch(exception& e) {
       	// handle any errors - omitted for brevity
